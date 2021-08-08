@@ -1,0 +1,175 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.formulario a{
+	text-decoration-color: white;
+	color:white;
+}
+.formulario a{
+	color: white;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+h2{
+	font-size: 20px;  
+}
+h3{
+	font-size: 15px;
+}
+li{
+	list-style: none;
+}
+body{
+
+}
+header{
+	background-image: url(https://images.deliveryhero.io/image/pedidosya/header-backgrounds/mix-1.jpg);
+	background-size:cover;
+	height: 400px;
+}
+.texto{
+	display: block;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	margin: 20px;
+	padding: 5px;
+	opacity: 1;
+	text-align:center;
+}
+.texto:hover{
+	color: white;
+}
+.navbar .navbar-brand{
+	color: white;
+	font-weight: bold;
+	font-size: 40px;
+}
+#texto1{
+	color: white;
+	margin-top: -21px;
+}
+.menu{
+	display: flex;
+	background-color: rgba(0, 0, 0,0.5);
+	border-radius: 20px;
+}
+.input-group-prepend .btn-outline-secondary{
+	background: rgba(0, 0, 0,0.5);
+	color: white;
+	border-radius: 20px;
+	font-weight: bold;
+	position: relative;
+	left: 418%;
+	font-size: 20px;
+	padding: 13px;
+}
+.input-group-prepend .btn-outline-secondary:hover{
+	color: black;
+	background: white;
+}
+.input-group>.form-control, .input-group>.form-select{
+	width: 40% !important;
+	background: none;
+	border: none;
+	border-bottom:  3px solid white;
+	color: white; 
+	text-align: center;
+}
+#inputSearch::-webkit-input-placeholder { color: white; } 
+#productos{
+	display: flex;
+}
+.card{
+	margin:20px;
+}
+.background{
+	height: 100vh;
+	background: url(https://fondosmil.com/fondo/35733.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.formulario {
+    z-index: 9999999999;
+    background-color: rgba(0, 0, 0,0.8);
+    position: absolute;
+    width: 369px;
+    height: 307px;
+    top: 25%;
+    left: 37%;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.formulario h3{
+	color: white;
+	font-size: 15px;	
+}
+.formulario h2{
+	color: white;
+	font-weight: bold;
+}
+.formulario input{
+	width: 90%;
+	margin: 25px 0 0px 0;
+	background: none;
+	color: white;
+	border: none;
+	border-bottom: 1px solid white;
+
+}
+.formulario button{
+	width: 90%;
+	margin: 25px 0 0px 0;
+	background: none;
+	color: white;
+	border: none;
+	border-bottom: 1px solid white;
+
+}
+.formulario button[type=submit]{
+	color: white;
+	border-radius: 20px;
+	font-weight: bold;
+	position: relative;
+	width: 40%;
+	font-size: 20px;
+	padding: 7px;
+	border:1px solid white;
+}
+.formulario button[type=submit]:hover{
+	color: black;
+	background: white;
+}
+
+.formulario input::-webkit-input-placeholder { color: white; } 
+.formulario.registro{
+    z-index: 9999999999;
+    background-color: rgba(0, 0, 0,0.8);
+    position: absolute;
+    width: 369px;
+    height: 460px;
+    top: 10%;
+    left: 37%;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+.Administrador table{
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.Administrador table th{
+	padding: 5px;
+}
+.Administrador div{
+	margin-bottom: 30px;
+}
