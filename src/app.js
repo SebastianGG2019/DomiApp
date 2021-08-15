@@ -9,10 +9,14 @@ require('dotenv').config();
 
 //importing routes
 const customerRoutes = require('./routes/links');
+const { dbConnection } = require('./database/config');
 //settings
 app.set('port',process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+// Conectar con base de datos
+dbConnection();
 
 //middlewores
 app.use(morgan('dev'));	

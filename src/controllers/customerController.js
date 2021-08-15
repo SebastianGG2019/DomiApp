@@ -1,4 +1,5 @@
 const path = require('path');
+const User = require('../models/user');
 const controller = {};
 
 controller.list =  (req, res)=>{
@@ -14,14 +15,18 @@ controller.list =  (req, res)=>{
 			});
 		});
 };
-controller.save = (req,res) =>{
-	const data = req.body;	
-	req.getConnection((err, conn) =>{
-		conn.query('INSERT INTO usuarios set ?',[data],(err, usuarios)=>{
-			console.log(usuarios);
-			res.sendFile(path.resolve(__dirname, '../views/index.html'));
-		});
-	});
+controller.save = async (req,res) =>{
+	const {Nombre, Apellido, Telefono, Direccion, Correo} = req.body;	
+	const user = new User({Nombre, Apellido, Telefono, Direccion, Correo, idTipoUsuario: 1});
+	await user.save();
+	res.sendFile(path.resolve(__dirname, '../views/index.html'));
+
+	// req.getConnection((err, conn) =>{
+	// 	conn.query('INSERT INTO usuarios set ?',[data],(err, usuarios)=>{
+	// 		console.log(usuarios);
+	// 		res.sendFile(path.resolve(__dirname, '../views/index.html'));
+	// 	});
+	// });
 };
 controller.update = (req, res) =>{
 	const Id = req.params.IdUsuario;
