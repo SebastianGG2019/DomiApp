@@ -55,10 +55,10 @@
                   <td><%= data[i].Correo %></td>
                   <td><%= data[i].IdTipoUsuario %></td>
                   <td>
-                    <a href="/borrar/<%= data[i].IdUsuario %>" class="btn btn-danger">Borrar registro</a>
+                    <a href="/borrar/<%= data[i]._id%>" class="btn btn-danger">Borrar registro</a>
                   </td>
                   <td>
-                    <a href="/Actualizar/<%= data[i].IdUsuario %>" class="btn btn-info">Actualizar</a>
+                    <a href="/Actualizar/<%= data[i]._id%>" class="btn btn-info">Actualizar</a>
                   </td>
                 </tr>
               <% } %>

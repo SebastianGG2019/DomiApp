@@ -2,18 +2,25 @@ const path = require('path');
 const User = require('../models/user');
 const controller = {};
 
-controller.list =  (req, res)=>{
-		req.getConnection((err, conn) => {
-			conn.query('SELECT * FROM usuarios', (err, usuarios) => {
-				if (err) {
-					res.json(err);
-				}
-				console.log(usuarios);
-				res.render('Administrador',{
-					data: usuarios
-				});
-			});
+controller.list =  async (req, res)=>{
+
+		const users = await User.find();
+		res.render('Administrador',{
+			data: users
 		});
+		
+
+		// req.getConnection((err, conn) => {
+		// 	conn.query('SELECT * FROM usuarios', (err, usuarios) => {
+		// 		if (err) {
+		// 			res.json(err);
+		// 		}
+		// 		console.log(usuarios);
+		// 		res.render('Administrador',{
+		// 			data: usuarios
+		// 		});
+		// 	});
+		// });
 };
 controller.save = async (req,res) =>{
 	const {Nombre, Apellido, Telefono, Direccion, Correo} = req.body;	
@@ -28,34 +35,44 @@ controller.save = async (req,res) =>{
 	// 	});
 	// });
 };
-controller.update = (req, res) =>{
+controller.update = async (req, res) =>{
 	const Id = req.params.IdUsuario;
 	const data = req.body;
-	console.log(Id);
-	req.getConnection((err, conn) => {	
-		conn.query('UPDATE usuarios set ? WHERE IdUsuario = ?',[data, Id] ,(err, usuarios) => {
-			res.redirect('/Administrador');
-		});
-	});
+	const user = await User.findByIdAndUpdate(Id, data);
+	res.redirect('/Administrador');
+	
+	// req.getConnection((err, conn) => {	
+	// 	conn.query('UPDATE usuarios set ? WHERE IdUsuario = ?',[data, Id] ,(err, usuarios) => {
+	// 		res.redirect('/Administrador');
+	// 	});
+	// });
 };
-controller.Actualizar = (req,res) =>{
+controller.Actualizar = async (req,res) =>{
 	const Id = req.params.IdUsuario;
-	req.getConnection((err, conn) => {
-			conn.query('SELECT * FROM usuarios WHERE IdUsuario = ?', Id, (err, usuarios) => {
-				console.log(usuarios);
-				res.render('Actualizar',{
-					data: usuarios[0]
-				});
-			});
-		});
-};
-controller.borrar = (req,res) =>{
-	const Id = req.params.IdUsuario;
-	req.getConnection((err, conn) =>{
-		conn.query('DELETE FROM usuarios WHERE IdUsuario = ?',Id ,(err, rows)=>{
-			res.redirect('/Administrador');
-		});
+	const user = await User.findById(Id);
+	res.render('Actualizar',{
+		data: user,
 	});
+
+
+	// req.getConnection((err, conn) => {
+	// 		conn.query('SELECT * FROM usuarios WHERE IdUsuario = ?', Id, (err, usuarios) => {
+	// 			console.log(usuarios);
+				
+	// 		});
+	// 	});
+};
+controller.borrar = async (req,res) =>{
+	const Id = req.params.IdUsuario;
+	const user =  await User.findByIdAndDelete(Id); 
+	res.redirect('/Administrador');
+
+
+	// req.getConnection((err, conn) =>{
+	// 	conn.query('DELETE FROM usuarios WHERE IdUsuario = ?',Id ,(err, rows)=>{
+	// 		res.redirect('/Administrador');
+	// 	});
+	// });
 };
 
 
