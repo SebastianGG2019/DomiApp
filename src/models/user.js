@@ -1,31 +1,35 @@
 const { Schema, model } = require('mongoose');
 
 const UserSchema = Schema({
-    Nombre: {
+    name: {
         type: String,
-        required: [true, 'The name is required'],
+        required: [true, 'El nombre es obligatorio'],
     },
-    Apellido:{
+    lastname: {
         type: String,
-        required: [true, 'The lastname is required'],
+        required: [true, 'El apellido es obligatorio'],
     },
-    Telefono:{
+    google: {
+        type: Boolean
+    },
+    phone: {
         type: Number,
-        required: [true, 'The phone number is required'],
+        required: [true, 'El telefono es obligatorio'],
     },
-    Direccion:{
+    adress: {
         type: String,
-        required: [true, 'The adress is required'],
+        required: [true, 'La dirección es obligatoria'],
     },
-    Correo:{
-        type:String,
-        required: [true, 'The email is required'],
+    email: {
+        type: String,
+        required: [true, 'El correo es obligatorio'],
+        unique: true
     },
-    idTipoUsuario:{
+    userType: {
         type: Number,
-        required: [true, 'The id type user is required'],
+        required: [true, 'El tipo de usuario es obligatorio'],
     }
 
 });
 
-module.exports = model('User',UserSchema);
+module.exports = model('User', UserSchema);
