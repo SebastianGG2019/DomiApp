@@ -1,3 +1,4 @@
+const user = require('../models/user');
 const User = require('../models/user');
 
 const controller = {};
@@ -108,5 +109,34 @@ controller.removeUser = async (req, res) => {
 		user
 	});
 };
+
+controller.getUserByAuth = async (req, res) => {
+
+	const { email, password } = req.body;
+	const user = await User.find({email, password});
+	if (user.length === 0) {
+		res.status(401).json({
+			msg: 'No se pudo encontrar un usuario con las credenciales'
+		});
+	}
+	else
+	{
+		const {name, lastname, phone, adress, email: correo, userType} = user[0];
+
+		res.json({
+			usuario: {
+				name,
+				lastname,
+				phone,
+				adress,
+				correo,
+				userType
+			}
+		})
+	}
+
+	
+
+}
 
 module.exports = controller;

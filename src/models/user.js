@@ -28,7 +28,11 @@ const UserSchema = Schema({
     userType: {
         type: Number,
         required: [true, 'El tipo de usuario es obligatorio'],
-    }
+    },
+    password: {
+        type: String,
+        required: [true, 'La contraseña es obligatoria'],
+    },
 
 });
 
