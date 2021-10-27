@@ -20,7 +20,7 @@ controller.getUsers =  async (req, res) => {
 // Funcion para guardar un usuario
 controller.saveUser = async (req, res) => {
 	// Leer el body de la petcion
-	const { name, lastname, phone, adress, email, userType } = req.body;
+	const { name, lastname, phone, adress, email, userType, password } = req.body;
 
 	// Se instancia objeto User para guardar datos recibidos
 	const user = new User({
@@ -30,6 +30,7 @@ controller.saveUser = async (req, res) => {
 		adress,
 		email,
 		userType,
+		password,
 	});
 
 	// Verificar si el correo existe
@@ -42,7 +43,11 @@ controller.saveUser = async (req, res) => {
 	}
 	
 	// Guardar en base de datos
-	await user.save();
+	try {
+		await user.save();
+	} catch (error) {
+		console.log(error)
+	}
 
 	// Responder con el usuario guardado
 	res.json({
