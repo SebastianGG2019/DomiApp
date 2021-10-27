@@ -13,7 +13,7 @@ const UserSchema = Schema({
         type: Boolean
     },
     phone: {
-        type: Number,
+        type: String,
         required: [true, 'El telefono es obligatorio'],
     },
     adress: {
@@ -26,9 +26,13 @@ const UserSchema = Schema({
         unique: true
     },
     userType: {
-        type: Number,
+        type: String,
         required: [true, 'El tipo de usuario es obligatorio'],
-    }
+    },
+    password: {
+        type: String,
+        required: [true, 'La contraseña es obligatoria'],
+    },
 
 });
 

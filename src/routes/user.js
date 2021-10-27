@@ -7,6 +7,8 @@ const router = Router();
 // Rutas usuario
 router.get('/', user.getUsers);
 
+router.get('/auth', user.getUserByAuth);
+
 router.post('/guardar', user.saveUser);
 
 router.get('/:id', user.findUser);
