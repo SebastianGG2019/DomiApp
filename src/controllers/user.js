@@ -43,12 +43,7 @@ controller.saveUser = async (req, res) => {
 	}
 	
 	// Guardar en base de datos
-	try {
-		await user.save();
-	} catch (error) {
-		console.log(error)
-	}
-
+	await user.save();
 	// Responder con el usuario guardado
 	res.json({
 		user
@@ -56,7 +51,7 @@ controller.saveUser = async (req, res) => {
 };
 
 // Funcion para buscar un usuario
-controller.findUser = async (req, res) => {
+controller.findUser = async (req, res) => { 
 	// Leer parametro id
 	const id = req.params.id;
 	// Buscar usuario
