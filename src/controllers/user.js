@@ -121,10 +121,11 @@ controller.getUserByAuth = async (req, res) => {
 	}
 	else
 	{
-		const {name, lastname, phone, adress, email: correo, userType} = user[0];
+		const {name, lastname, phone, adress, email: correo, userType, _id} = user[0];
 
 		res.json({
 			usuario: {
+				_id,
 				name,
 				lastname,
 				phone,
