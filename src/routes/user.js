@@ -7,7 +7,7 @@ const router = Router();
 // Rutas usuario
 router.get('/', user.getUsers);
 
-router.get('/auth', user.getUserByAuth);
+router.post('/auth', user.getUserByAuth);
 
 router.post('/guardar', user.saveUser);
 
